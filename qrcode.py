@@ -2,8 +2,6 @@ import time
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_SSD1306
 import Image
-import ImageDraw
-import ImageFont
 # Raspberry Pi pin configuration:
 RST = 17
 # Note the following are only used with SPI:
@@ -23,12 +21,7 @@ disp.begin()
 # Clear display.
 disp.clear()
 disp.display()
-width = disp.width
-height = disp.height
-image = Image.new('1', (width, height))
-draw = ImageDraw.Draw(image)
-font = ImageFont.load_default()
-draw.text((20,20),'300 MN',font=font, fill=255)
+image = Image.open('qrcode.png').resize((disp.width, disp.height), Image.ANTIALIAS).convert('1')
 # Display image.
 disp.image(image)
 disp.display()
