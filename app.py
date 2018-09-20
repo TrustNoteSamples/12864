@@ -27,8 +27,9 @@ width = disp.width
 height = disp.height
 image = Image.new('1', (width, height))
 draw = ImageDraw.Draw(image)
-font = ImageFont.load_default()
-draw.text((20,20),'300 MN',font=font, fill=255)
+# font = ImageFont.load_default()
+font = ImageFont.truetype('8-bit pusab.ttf', 12)
+draw.text((10,20),'300.00 MN',font=font, fill=255)
 # Display image.
 disp.image(image)
 disp.display()
